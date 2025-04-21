@@ -71,9 +71,7 @@ Might drop a streamlit web app or a simple HuggingFace space… stay tuned!
 
 ## 📫 Contact Me
 Feel free to drop feedback or collaboration ideas:
-- ✉️ Email: Coming soon
-- 🧠 GitHub: [github.com/aditya-yadav-ai](https://github.com/aditya-yadav-ai) *(you can update with actual username)*
-
+-  [🧠 GitHub ](https://github.com/aditya-yadav-ai) 
 ---
 
 Thanks for reading. And if you’re just starting your ML journey — **don’t stop now. You’re one project away from your breakthrough.** 🚀
