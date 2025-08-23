@@ -1,4 +1,9 @@
 # 🧠 TensorFlow Projects by Aditya Yadav
+## Module 1:
+
+> Module 1 mainly circled around the basics of TensorFlow vs NumPy, the idea of tensors being immutable (like tuples) and tf.Variable being mutable (needed for weights that update), slicing feeling familiar yet tricky because reassignment only works with variables, and the bigger gap you noticed in your own understanding: you’ve practiced shapes but never really used reshape for a real purpose — and now you know it matters only when data has to be bent into the exact form a model expects, not for its own sake. You also clarified that messy or unbalanced data isn’t a reason to “go deep learning” — that’s preprocessing work, not architecture choice. 
+
+---
 
 Welcome! This repo is a personal deep learning sandbox where I, **Aditya Yadav**, explore machine learning from scratch — guided only by documentation, curiosity, and some much-needed help from ChatGPT 😅. These projects mark the beginning of my journey into AI, where I pushed through confusion, code errors, and late-night “why isn't this working?!” moments.
 
