@@ -19,7 +19,7 @@ This repository is my personal sandbox for deep learning. Each project here repr
 
 ## Module 4 :
 ### [Reinforcement Learning](https://github.com/aypy01/tensorflow/blob/main/module-4.ipynb)
->  In this module, I implemented Q-learning on the FrozenLake-v1 environment (slippery=True) using Gymnasium. I initialized a Q-table with zeros and defined hyperparameters: learning rate (α), discount factor (γ), exploration rate (ε), episodes, and max steps. At each episode, the environment was reset and actions were chosen using an epsilon-greedy strategy—random actions with probability ε, otherwise greedy actions using argmax from the Q-table. After each step, the Q-value was updated using the Bellman equation with the reward and estimated future rewards. Termination or truncation ended an episode, rewards were logged, and ε decayed gradually to favor exploitation. After training, I evaluated performance by averaging rewards over episodes, showing the agent’s ability to improve navigation and achieve ~72% success on FrozenLake.
+>  In this module, I implemented Q-learning on the FrozenLake-v1 environment (slippery=True) using Gymnasium. I initialized a Q-table with zeros and defined hyperparameters: learning rate (α), discount factor (γ), exploration rate (ε), episodes, and max steps. At each episode, the environment was reset and actions were chosen using an epsilon-greedy strategy random actions with probability ε, otherwise greedy actions using argmax from the Q-table. After each step, the Q-value was updated using the Bellman equation with the reward and estimated future rewards. Termination or truncation ended an episode, rewards were logged, and ε decayed gradually to favor exploitation. After training, I evaluated performance by averaging rewards over episodes, showing the agent’s ability to improve navigation and achieve ~72% success on FrozenLake.
 
 ---
 
@@ -31,7 +31,40 @@ This repository is my personal sandbox for deep learning. Each project here repr
 
 ### [Fashion MNIST](https://github.com/aypy01/tensorflow/blob/main/fashion-mnist-image-classifier.py)
 >  I trained a CNN on the FashionMNIST dataset, normalizing 28×28 grayscale images to [0,1] and using Conv2D, MaxPooling, Dropout, and Dense layers with softmax for classification. Compiled with Adam and sparse categorical crossentropy, the model trained for 10 epochs with a validation split and achieved ~92.5% accuracy on the test set. Predictions correctly mapped review images to their classes, and the model was saved as fashion_mnist.keras.
+## [Models](https://github.com/aypy01/tensorflow/tree/main/models)
 
+> This folder contains the trained `.keras` models from different TensorFlow projects in this repository.  
+They are saved checkpoints of my experiments — ready to be reloaded for evaluation, predictions, or fine-tuning.
+
+> ### Model Index
+
+| Model File              | Task / Dataset          | Metric Achieved     |
+|--------------------------|-------------------------|---------------------|
+| `titanic.keras`         | Binary Classification (Titanic survival) | ~81% Accuracy |
+| `iris_species.keras`    | Multiclass Classification (Iris dataset) | ~70% Accuracy |
+| `cifar10.keras`         | Image Classification (CIFAR-10) | ~72% Accuracy |
+| `cifar_augmented.keras` | CIFAR-10 with Data Augmentation | ~61% Accuracy |
+| `dogsvscat.keras`       | Transfer Learning (Dogs vs Cats, MobileNetV2) | ~94% Accuracy |
+| `fuel_efficiency.keras` | Regression (Auto MPG dataset) | 1.81 MAE |
+| `fashion_mnist.keras`   | Image Classification (Fashion MNIST) | ~92.5% Accuracy |
+
+---
+
+## Usage
+
+### To load and use any model:  
+
+```python
+import tensorflow as tf
+
+# Load the trained model
+model = tf.keras.models.load_model("models/fashion_mnist.keras")
+
+# Evaluate or predict
+loss, acc = model.evaluate(x_test, y_test)
+print(f"Accuracy: {acc:.2f}")
+
+```
 
 ## Tech Stack
 - TensorFlow / Keras
