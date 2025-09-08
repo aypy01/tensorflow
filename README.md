@@ -1,6 +1,12 @@
-# TensorFlow Projects by Aditya Yadav
-Welcome! This repo is a personal deep learning sandbox These projects mark the beginning of my journey into AI, where I pushed through confusion, code errors, and late-night “why isn't this working?!” moments.
+# TensorFlow 
+This repository is my personal sandbox for deep learning. Each project here represents a step forward from wrestling with data preprocessing and model architectures to debugging late night training runs. The modules and projects are not just exercises; they’re building blocks, each one helping me nderstand how raw data transforms into working intelligence. Think of this repo as a transparent log of progress: no polish, just the real work of learning TensorFlow by building with it.
 
+---
+<p align="left">
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=500&color=00FF80&background=765898&center=false&vCenter=false&width=440&lines=Basics;Classification;Convolution+Neural+Network+(CNN);Reinforcement-Learning;Project:+Sentiment+Analysis;Project:+Fuel+Efficiency;Project:+Fashion+MNIST" alt="Typing SVG" />
+</p>
+
+---
 ## Module 1:
 ### [Basics](https://github.com/aypy01/tensorflow/blob/main/module-1.ipynb)
 > Module 1 mainly circled around the basics of TensorFlow vs NumPy, the idea of tensors being immutable (like tuples) and tf.Variable being mutable (needed for weights that update), slicing feeling familiar yet tricky because reassignment only works with variables, and the bigger gap you noticed in your own understanding: you’ve practiced shapes but never really used reshape for a real purpose and now you know it matters only when data has to be bent into the exact form a model expects, not for its own sake. You also clarified that messy or unbalanced data isn’t a reason to “go deep learning”  that’s preprocessing work, not architecture choice.
@@ -17,70 +23,46 @@ Welcome! This repo is a personal deep learning sandbox These projects mark the b
 
 ---
 
-## ✨ Projects Included
+## Projects:
+### [Sentiments](https://github.com/aypy01/tensorflow/blob/main/sentiments.ipynb)
+>  The IMDB dataset was directory-based (`train/pos`, `train/neg`, `test/pos`, `test/neg`), with labels inferred from folder names and an unused `unsup` folder. I loaded it using `text_dataset_from_directory` with a validation split, seed, and batch size. Reviews were preprocessed using a custom standardization function (lowercasing, removing punctuation, stripping `<br />` tags) and a `TextVectorization` layer with `max_tokens=10000` and `sequence_length=250` to map words into integers. The model architecture included an Embedding layer, Dropout, GlobalAveragePooling1D, and a Dense output layer with sigmoid activation, compiled with Adam and binary crossentropy. After training with validation split, the model achieved \~81.9% accuracy on the test set and was saved as `sentiments.keras`.
+### [Fuel Efficiency](https://github.com/aypy01/tensorflow/blob/main/fuel_efficiency.ipynb)
+>  I prepared the fuel efficiency dataset by dropping irrelevant columns, handling missing values, and one-hot encoding categorical origin data. After splitting into train/test sets and separating features from the target (MPG), I normalized the numerical features using TensorFlow’s Normalization layer. A simple regression model was built with a Normalizer input and a single Dense output neuron, compiled with Adam and mean absolute error. The model achieved ~ 1.81 MAE on the test set, showing good baseline performance, and was saved as regression.keras.
 
-### 1. 🔤 Sentiment Analysis with TensorFlow & TextVectorization
-A complete pipeline that:
-- Accepts raw text (like movie reviews) 💬
-- Cleans & vectorizes it using `TextVectorization`
-- Trains a neural network to predict sentiment (positive/negative) 😃😡
-- Outputs predictions on real unseen text
+### [Fashion MNIST](https://github.com/aypy01/tensorflow/blob/main/fashion-mnist-image-classifier.py)
+>  I trained a CNN on the FashionMNIST dataset, normalizing 28×28 grayscale images to [0,1] and using Conv2D, MaxPooling, Dropout, and Dense layers with softmax for classification. Compiled with Adam and sparse categorical crossentropy, the model trained for 10 epochs with a validation split and achieved ~92.5% accuracy on the test set. Predictions correctly mapped review images to their classes, and the model was saved as fashion_mnist.keras.
 
-📌 **Key Concepts Covered:**
-- Text preprocessing using TensorFlow layers
-- Sequential model architecture with Embedding + GlobalAveragePooling
-- Binary classification using sigmoid activation
-- Evaluation using BinaryCrossentropy & Accuracy metrics
-- End-to-end pipeline: raw text → prediction ✅
 
-💡 _Learned how preprocessing must be integrated either before training or as part of the export model, and the importance of thresholding (e.g., 0.5 for binary)._
-
----
-
-### 2. 🖼️ Basic Image Classification (CNN)
-My early dive into image data:
-- Built a basic **Convolutional Neural Network** (CNN)
-- Used TensorFlow’s `ImageDataGenerator` for loading and augmenting image data
-- Trained the model to classify images into categories 🎯
-
-📌 **Key Concepts Covered:**
-- Convolution and MaxPooling operations
-- Flattening image features into dense layers
-- Model evaluation on validation/test sets
-- Use of `compile`, `fit`, and `evaluate` pipelines
-- Understanding of overfitting and how to reduce it (e.g., via dropout or data augmentation)
-
-💡 _This project was especially useful for getting hands-on with CNNs and understanding how image features are extracted._
-
----
-
-## 🚀 Personal Note
-
-When I started, I thought deep learning would be out of my league. Reading through TensorFlow docs felt like reading alien symbols at first 👽. But with some persistence, trial and error, and targeted help from ChatGPT — I began to not just copy code, but understand it. This repo stands as proof that **you can go from zero to building real ML pipelines by learning actively and not giving up.**
-
-I did **everything here by myself**, without copying from others, relying only on official docs, Google searches, and intelligent nudges from ChatGPT when I got stuck. This was all **me vs the machine**… and I think I’m starting to win 😄.
-
----
-
-## 🛠 Tech Stack
+## Tech Stack
 - TensorFlow / Keras
 - Python 3
-- Google Colab
-
-
 
 ---
+
 ## Note
-Knowledge should not be gated behind paywalls or exclusivity.
-This repository exists so that anyone can access structured, practical TensorFlow notes without restriction.
-The journey doesn’t end here. After mastering these core modules data preprocessing, model building, CNNs, and reinforcement learning—take the next step with fullfledged TensorFlow projects that put theory into real-world practice.
+> Knowledge should not be gated behind paywalls.
+The real edge isn’t in reading endless theory it’s in doing the work, making the mistakes, and watching the feedback loops teach you faster than books ever could. These projects are my proof. Knowledge compounds, like interest, and the only way to collect it is through direct experience. The repo isn’t finishedit never will be. It’s alive, a reflection of progress. If you’re here, don’t just read it. Fork it, break it, rebuild it. That’s how you actually learn.
+ This is only a beginning. From preprocessing data to building CNNs and trying out reinforcement learning, each step showed me how much more there is to explore. If you’ve made it this far, don’t stop,turn these foundations into projects, mistakes, and eventually, mastery.
+---
 
-Thanks for reading. And if you’re just starting your ML journey — **don’t stop now. You’re one project away from your breakthrough.** 
+## Author
+ <p align="left">
+  Created and maintained by &nbsp;
+  <a href="https://github.com/aypy01" target="_blank">
+  <img src="https://img.shields.io/badge/Aaditya_Yadav-aypy01-e6770b?style=flat-square&logo=github&logoColor=00FF80&labelColor=765898" alt="GitHub Badge"/>
+</a>
 
-This is only a beginning. From preprocessing data to building CNNs and trying out reinforcement learning, each step showed me how much more there is to explore. If you’ve made it this far, don’t stop—turn these foundations into projects, mistakes, and eventually, mastery.
+</p>
 
-## Contact Me
-Feel free to drop feedback or collaboration ideas:
--  [🧠 GitHub ](https://github.com/aditya-yadav-ai) 
+<p>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=3000&pause=500&color=00FF80&background=765898&center=false&vCenter=false&width=440&lines=Break+Things+First%2C+Understand+Later;Built+to+Debug%2C+Not+Repeat;Learning+What+Actually+Sticks;Code.+Observe.+Refine." alt="Typing SVG" />
+</p>
+
+---
+
+## License
+
+This project is licensed under the [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT).
+
 
 
