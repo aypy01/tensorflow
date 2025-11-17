@@ -45,6 +45,7 @@ They are saved checkpoints of my experiments — ready to be reloaded for evalua
 | `cifar10.keras`         | Image Classification (CIFAR-10) | ~72% Accuracy |
 | `cifar_augmented.keras` | CIFAR-10 with Data Augmentation | ~61% Accuracy |
 | `dogsvscat.keras`       | Transfer Learning (Dogs vs Cats, MobileNetV2) | ~94% Accuracy |
+| `sentiments.keras` | Text Vectorization (IMDb reviews)  | 81.9% Accuracy |
 | `fuel_efficiency.keras` | Regression (Auto MPG dataset) | 1.81 MAE |
 | `fashion_mnist.keras`   | Image Classification (Fashion MNIST) | ~92.5% Accuracy |
 
