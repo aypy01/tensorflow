@@ -6,7 +6,7 @@
 - [Module 4: Reinforcement Learning](#module-4)
 - [Projects](#projects)
 - [Models](#models)
-
+- [Setup](#setup)
 
 
 This repository is my personal TensorFlow learning sandbox.
@@ -113,7 +113,15 @@ They are saved checkpoints of my experiments - ready to be reloaded for evaluati
 | `fashion_mnist.keras`   | Image Classification (Fashion MNIST) | ~92.5% Accuracy |
 
 ---
+## Setup
 
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+
+```
+---
 ## Usage
 
 ### To load and use any model:  
