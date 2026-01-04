@@ -1,4 +1,14 @@
 # TensorFlow 
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras-D00000?logo=keras&logoColor=white)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/aypy01/tensorflow)
+![GitHub top language](https://img.shields.io/github/languages/top/aypy01/tensorflow)
+![GitHub last commit](https://img.shields.io/github/last-commit/aypy01/tensorflow)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+----
 ## Index
 - [Module 1: Basics](#module-1)
 - [Module 2: Classification](#module-2)
