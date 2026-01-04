@@ -1,5 +1,10 @@
 # TensorFlow 
-This repository is my personal sandbox for deep learning. Each project here represents a step forward from wrestling with data preprocessing and model architectures to debugging late night training runs. The modules and projects are not just exercises; they’re building blocks, each one helping me nderstand how raw data transforms into working intelligence. Think of this repo as a transparent log of progress: no polish, just the real work of learning TensorFlow by building with it.
+This repository is my personal TensorFlow learning sandbox.
+Each module represents a concrete step forward - from understanding tensors and preprocessing data to building CNNs, NLP models, and reinforcement learning agents.
+
+This is not a polished library or a tutorial series.
+It’s a transparent, hands-on log of learning TensorFlow by building real models, saving checkpoints, and measuring results.
+
 
 ---
 <p align="left">
@@ -7,19 +12,67 @@ This repository is my personal sandbox for deep learning. Each project here repr
 </p>
 
 ---
-## Module 1:
+## Module 1
 ### [Basics](https://github.com/aypy01/tensorflow/blob/main/module-1.ipynb)
-> Module 1 mainly circled around the basics of TensorFlow vs NumPy, the idea of tensors being immutable (like tuples) and tf.Variable being mutable (needed for weights that update), slicing feeling familiar yet tricky because reassignment only works with variables, and the bigger gap you noticed in your own understanding: you’ve practiced shapes but never really used reshape for a real purpose and now you know it matters only when data has to be bent into the exact form a model expects, not for its own sake. You also clarified that messy or unbalanced data isn’t a reason to “go deep learning”  that’s preprocessing work, not architecture choice.
-## Module 2:
-### [Classification](https://github.com/aypy01/tensorflow/blob/main/module-2.ipynb)
-> Worked with two datasets from TensorFlow: Titanic (binary classification) and Iris (multiclass classification). For Titanic, I learned to properly split train/test sets (x_train, y_train, x_test, y_test) and handled missing values with fillna. I dropped the fare column (not useful for survival), scaled numerical features (age, etc.) with StandardScaler, and one-hot encoded categorical columns. After preprocessing, I built a neural network with input shape = number of features, hidden layers, and a single sigmoid output unit for binary classification. The model was compiled with binary crossentropy and accuracy, trained with a validation split, and achieved ~81% accuracy when evaluated on the test set. For Iris, which had 3 species labels and 4 features, I defined proper column names, popped the target, and used TensorFlow’s Normalization layer (axis=-1) instead of scikit-learn scalers. The model pipeline started with the normalizer layer, followed by hidden layers, and ended with a Dense(3, softmax) output for multiclass classification. I compiled with Adam optimizer and sparse categorical crossentropy (since labels were integers/strings), trained with validation split, and achieved ~70% accuracy (reasonable given the dataset size). Finally, I saved both models as .keras files.
-## Module 3:
-### [Convolution Neural-Networks(CNN)](https://github.com/aypy01/tensorflow/blob/main/module-3.ipynb)
-> In this module, I worked with convolutional neural networks (CNNs) on three tasks. First, I trained a CNN on the CIFAR-10 dataset, normalizing pixel values to the 0–1 range, stacking Conv2D layers with filters (3×3 kernels) and max pooling, then flattening to connect with dense layers before outputting 10 softmax classes. The model was compiled with Adam and sparse categorical cross-entropy, reaching ~72% accuracy. Next, I repeated the CNN pipeline but applied image augmentation using ImageDataGenerator (zoom, shift, rotation, fill mode), which helped generalize the model but dropped accuracy to ~61%. Finally, I used transfer learning on the Dogs vs Cats dataset with a pretrained MobileNetV2 base model (include_top=False, weights='imagenet'), resizing and normalizing images with 127.0 and then substract 1 from it coz MobileNetV2 needs input in range of -1 to 1 not 0 to 1 before passing them through a GlobalAveragePooling layer and a final dense output. Trained on batched data, this model achieved ~94% accuracy, demonstrating the power of transfer learning for binary classification compared to training a CNN from scratch.
 
-## Module 4 :
+**Key learnings:**
+- Difference between `tf.Tensor` (immutable) and `tf.Variable` (mutable, required for trainable weights)
+- Tensor slicing behavior vs reassignment limitations
+- Practical use of `reshape` when adapting data to model input requirements
+- Data quality issues belong to preprocessing, not model or architecture choice
+
+---
+
+## Module 2
+### [Classification](https://github.com/aypy01/tensorflow/blob/main/module-2.ipynb)
+
+**Key learnings:**
+- Built end-to-end classification pipelines for:
+  - **Titanic** (binary classification)
+  - **Iris** (multiclass classification)
+- Proper train/test splitting (`x_train`, `y_train`, `x_test`, `y_test`)
+- Handling missing values using `fillna`
+- Feature preprocessing:
+  - Dropped non-informative features (e.g., `fare`)
+  - Scaled numerical features with `StandardScaler`
+  - One-hot encoded categorical features
+- Model design:
+  - Sigmoid output + binary crossentropy for binary classification
+  - Softmax output + sparse categorical crossentropy for multiclass classification
+- Used TensorFlow’s `Normalization` layer instead of external scalers for Iris
+- Saved trained models as `.keras` files
+- Achieved ~81% accuracy (Titanic) and ~70% accuracy (Iris)
+
+---
+
+## Module 3
+### [Convolutional Neural Networks (CNN)](https://github.com/aypy01/tensorflow/blob/main/module-3.ipynb)
+
+**Key learnings:**
+- Built CNNs from scratch for image classification using CIFAR-10
+- Normalized image inputs to the 0–1 range
+- Stacked `Conv2D`, `MaxPooling`, and `Dense` layers for feature extraction and classification
+- Achieved ~72% accuracy on CIFAR-10 with a baseline CNN
+- Applied image augmentation (zoom, shift, rotation) to improve generalization
+- Observed trade-offs between augmentation and raw accuracy (~61%)
+- Implemented transfer learning using MobileNetV2 (`weights="imagenet"`, `include_top=False`)
+- Preprocessed inputs to the [-1, 1] range as required by MobileNetV2
+- Used `GlobalAveragePooling` and a custom classification head
+- Achieved ~94% accuracy on Dogs vs Cats, highlighting the effectiveness of transfer learning
+
+---
+
+## Module 4
 ### [Reinforcement Learning](https://github.com/aypy01/tensorflow/blob/main/module-4.ipynb)
->  In this module, I implemented Q-learning on the FrozenLake-v1 environment (slippery=True) using Gymnasium. I initialized a Q-table with zeros and defined hyperparameters: learning rate (α), discount factor (γ), exploration rate (ε), episodes, and max steps. At each episode, the environment was reset and actions were chosen using an epsilon-greedy strategy random actions with probability ε, otherwise greedy actions using argmax from the Q-table. After each step, the Q-value was updated using the Bellman equation with the reward and estimated future rewards. Termination or truncation ended an episode, rewards were logged, and ε decayed gradually to favor exploitation. After training, I evaluated performance by averaging rewards over episodes, showing the agent’s ability to improve navigation and achieve ~72% success on FrozenLake.
+
+**Key learnings:**
+- Implemented Q-learning on the `FrozenLake-v1` environment using Gymnasium
+- Initialized and updated a Q-table using the Bellman equation
+- Applied an epsilon-greedy strategy to balance exploration and exploitation
+- Tuned hyperparameters: learning rate (α), discount factor (γ), exploration rate (ε)
+- Implemented epsilon decay to shift from exploration to exploitation
+- Evaluated agent performance by averaging rewards across episodes
+- Achieved ~72% success rate on FrozenLake
 
 ---
 
@@ -34,7 +87,7 @@ This repository is my personal sandbox for deep learning. Each project here repr
 ## [Models](https://github.com/aypy01/tensorflow/tree/main/models)
 
 > This folder contains the trained `.keras` models from different TensorFlow projects in this repository.  
-They are saved checkpoints of my experiments — ready to be reloaded for evaluation, predictions, or fine-tuning.
+They are saved checkpoints of my experiments - ready to be reloaded for evaluation, predictions, or fine-tuning.
 
 > ### Model Index
 
@@ -74,9 +127,14 @@ print(f"Accuracy: {acc:.2f}")
 ---
 
 ## Note
-> Knowledge should not be gated behind paywalls.
-The real edge isn’t in reading endless theory it’s in doing the work, making the mistakes, and watching the feedback loops teach you faster than books ever could. These projects are my proof. Knowledge compounds, like interest, and the only way to collect it is through direct experience. The repo isn’t finishedit never will be. It’s alive, a reflection of progress. If you’re here, don’t just read it. Fork it, break it, rebuild it. That’s how you actually learn.
- This is only a beginning. From preprocessing data to building CNNs and trying out reinforcement learning, each step showed me how much more there is to explore. If you’ve made it this far, don’t stop,turn these foundations into projects, mistakes, and eventually, mastery.
+
+
+This repository documents learning through direct experimentation.
+The focus is on building, breaking, debugging, and measuring - not on theoretical completeness or production readiness.
+
+The repo is intentionally iterative and unfinished.
+If you’re exploring TensorFlow, feel free to fork it, experiment, and adapt the ideas into your own projects.
+
 ---
 
 ## Author
