@@ -1,0 +1,24 @@
+# Core ML / DL
+tensorflow>=2.13
+numpy
+pandas
+scikit-learn
+
+# Visualization
+matplotlib
+
+# Notebooks
+jupyter
+ipykernel
+
+# NLP utilities
+tensorflow-datasets
+
+# Reinforcement Learning
+gymnasium
+
+# Image processing / augmentation
+Pillow
+
+# Optional (used in some workflows)
+opencv-python
