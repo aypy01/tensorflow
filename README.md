@@ -1,4 +1,14 @@
 # TensorFlow 
+## Index
+- [Module 1: Basics](#module-1)
+- [Module 2: Classification](#module-2)
+- [Module 3: Convolutional Neural Networks](#module-3)
+- [Module 4: Reinforcement Learning](#module-4)
+- [Projects](#projects)
+- [Models](#models)
+
+
+
 This repository is my personal TensorFlow learning sandbox.
 Each module represents a concrete step forward - from understanding tensors and preprocessing data to building CNNs, NLP models, and reinforcement learning agents.
 
